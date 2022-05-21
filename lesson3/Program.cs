@@ -22,7 +22,7 @@ namespace lesson3
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    arr[i, j] = random.Next(-99,100);
+                    arr[i, j] = random.Next(-99, 100);
                 }
             }
             return arr;
@@ -76,7 +76,7 @@ namespace lesson3
                 minSize = array.GetLength(1);
             for (int i = 0; i < minSize; i++)
             {
-                Console.Write($"{array[i,i]}\t");
+                Console.Write($"{array[i, i]}\t");
             }
             Console.WriteLine();
         }
@@ -86,7 +86,7 @@ namespace lesson3
         /// </summary>
         static void Task2()
         {
-            string[,] directory = new string[5,2];
+            string[,] directory = new string[5, 2];
             directory[0, 0] = "Krist"; directory[0, 1] = "88005553535";
             directory[1, 0] = "Mona"; directory[1, 1] = "88005553536";
             directory[2, 0] = "Lisa"; directory[2, 1] = "88005553537";
@@ -137,7 +137,7 @@ namespace lesson3
         static void Task4()
         {
             Random random = new Random();
-            bool[,] field = new bool[10,10];
+            bool[,] field = new bool[10, 10];
             for (int i = 0; i < field.GetLength(0); i++)
             {
                 for (int j = 0; j < field.GetLength(1); j++)
@@ -187,7 +187,7 @@ namespace lesson3
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("[1]");
                 Console.ResetColor();
-                Console.WriteLine(" Вывод элементов двухмерного массива по диагонали");
+                Console.WriteLine(" Вывод элементов двумерного массива по диагонали");
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("[2]");
