@@ -165,20 +165,31 @@ namespace lesson5
                     Console.Write((i + 1) + ". ");
                     tasks[i].Print();
                 }
-                Console.WriteLine("0. Выйти из списка задач");
+                Console.WriteLine("Введите 0, чтобы добавить новую задачу");
+                Console.WriteLine("Введите -1, чтобы выйти из списка задач");
                 Console.Write("Введите номер задачи, отметку которой хотите изменить: ");
-                while (!int.TryParse(Console.ReadLine(), out taskNumber) || (taskNumber > tasks.Length) || (taskNumber < 0))
+                while (!int.TryParse(Console.ReadLine(), out taskNumber) || (taskNumber > tasks.Length) || (taskNumber < -1))
                 {
                     Console.WriteLine("Некорректный ввод, попробуйте снова.");
                 }
-                if (taskNumber != 0)
+                if (taskNumber > 0)
                 {
                     taskNumber--;
                     tasks[taskNumber].isDone = !tasks[taskNumber].isDone;
                     SaveToDoToXml(fileName, tasks);
                 }
-                else
+                else if (taskNumber == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Введите название новой задачи:");
+                    ToDo newTask = new ToDo(Console.ReadLine());
+                    tasks = tasks.Concat(new ToDo[] { newTask }).ToArray();
+                    SaveToDoToXml(fileName, tasks);
+                }
+                else if (taskNumber == -1)
+                {
                     return;
+                }
             }
         }
         /// <summary>
